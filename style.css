@@ -23,10 +23,14 @@ html {
   --header3: calc(3rem + 1vw);
   --header4: calc(2.4rem + 1vw);
   --text: calc(1.5rem + 1vw);
-  --big: calc(2.4rem + 1vw);
+  --big: calc(6rem + 1vw);
   --special-color: #906272;
   --background-color: #414141;
   --gray-text: #525252;
+  scroll-behavior: smooth;
+}
+button {
+  cursor: pointer;
 }
 
 h1 {
@@ -190,6 +194,7 @@ nav {
 .burger,
 .menu-check {
   display: none;
+  cursor: pointer;
 }
 
 /* about section */
@@ -271,6 +276,70 @@ nav {
   text-align: center;
 }
 
+/* contact section */
+
+.contact {
+  min-height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-wrapper {
+  flex: 3 1 40rem;
+}
+.form-wrapper span {
+  font-size: var(--big);
+  color: var(--special-color);
+}
+.form-wrapper label {
+  display: block;
+}
+.form-wrapper input {
+  display: block;
+  margin: 2rem 0rem;
+  background: var(--background-color);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.form-wrapper button {
+  padding: 1rem 8rem;
+  background: var(--special-color);
+  color: white;
+  border: none;
+  width: 100%;
+
+  border-radius: 0.5rem;
+}
+.form-wrapper h2 {
+  margin: 5rem 0rem;
+}
+.contact img {
+  flex: 1 1 40rem;
+}
+
+/* footer */
+
+footer {
+  background: var(--background-color);
+  color: white;
+  display: flex;
+  padding: 3rem 5%;
+  align-items: center;
+  flex-wrap: wrap;
+}
+footer ul {
+  display: flex;
+  flex: 1 1 40rem;
+  justify-content: space-between;
+  align-items: center;
+}
+footer h4 {
+  flex: 3 1 40rem;
+  font-size: calc(1.4rem + 1vw);
+}
+
 @media screen and (max-width: 842px) {
   .burger {
     position: relative;
@@ -300,34 +369,23 @@ nav {
     transition: transform 1s ease;
   }
 
-  .menu-check {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    transform: translate(5%, -50%);
-    width: 5rem;
-    height: 5rem;
-    cursor: pointer;
-    opacity: 0;
-    z-index: 100;
-  }
-
-  .menu-check:checked + .nav-links {
+  .nav-open {
     transform: translateX(-100%);
   }
-  .menu-check:checked ~ .burger span {
+
+  .toggle .line1 {
+    transform: rotateZ(45deg) translateY(300%);
     background: white;
   }
-  .menu-check:checked ~ .burger span:nth-child(2) {
+  .toggle .line2 {
     opacity: 0;
   }
-  .menu-check:checked ~ .burger span:nth-child(1) {
-    transform: rotateZ(45deg) translateY(300%);
-  }
-  .menu-check:checked ~ .burger span:nth-child(3) {
+
+  .toggle .line3 {
     transform: rotateZ(-45deg) translateY(-300%);
+    background: white;
   }
+
   .hero {
     width: 100%;
   }
@@ -355,5 +413,34 @@ nav {
   }
   .gallery-head {
     display: none;
+  }
+  .contact img {
+    display: none;
+  }
+  .form-wrapper h2 {
+    text-align: center;
+  }
+  .form-wrapper label {
+    text-align: center;
+  }
+
+  footer ul {
+    order: 1;
+  }
+  footer h4 {
+    order: 2;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  html {
+    --header1: 3rem;
+    --header2: 5rem;
+    --header3: 4rem;
+    --header4: 3rem;
+    --text: 3rem;
+    --big: 8rem;
   }
 }
